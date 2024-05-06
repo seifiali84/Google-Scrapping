@@ -9,15 +9,19 @@ namespace Google_Scrapping
 {
     public class API
     {
-
+        // Create Http Client to send request to Serp API
         private static HttpClient httpClient = new HttpClient() { BaseAddress = new Uri("https://serpapi.com/") };
 
         public static async Task<List<string>> GetImage(string SearchText)
         {
+            // Send Request
             var Res = await httpClient.GetAsync($"search.json?q={SearchText}&engine=google_images&ijn=0");
+
             List<string> ImagesList = new List<string>();
+
             if (Res.IsSuccessStatusCode)
             {
+                // get Response and Deserialize it
                 string json = await Res.Content.ReadAsStringAsync();
                 return new List<string>();
                 var jsonData = JsonSerializer.Deserialize<Dictionary<string, object>>(json);

@@ -6,15 +6,25 @@ namespace Google_Scrapping
         {
             InitializeComponent();
         }
-        // Confirm Button Click
+        // Confirm Button Click (Async)
         private async void button3_Click(object sender, EventArgs e)
         {
             button3.Enabled = false;
-            List<string> q = await API.GetImage("Dog");
-            foreach (var item in q)
+            // Search for user input
+            if (textBox1.Text != "")
             {
-                richTextBox1.Text += item + "\n";
+                List<string> q = await API.GetImage(textBox1.Text);
+                foreach (var item in q)
+                {
+                    richTextBox1.Text += item + "\n";
+                }
             }
+            else
+            {
+                MessageBox.Show("Please Search Something!", "Please Search Something then click on Confirm Button!", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+
+            button3.Enabled = true;
         }
     }
 }
