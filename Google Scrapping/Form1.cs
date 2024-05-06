@@ -35,5 +35,26 @@ namespace Google_Scrapping
             }
             pictureBox1.ImageLocation = q[++ImageIndex];
         }
+        // Previous Image Button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(ImageIndex == 0)
+            {
+                ImageIndex = 100;
+            }
+            pictureBox1.ImageLocation = q[++ImageIndex];
+        }
+        // Handle Keyboards Button
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Left)
+            {
+                button1.PerformClick();
+            }
+            else if(e.KeyCode == Keys.Right)
+            {
+                button2.PerformClick();
+            }
+        }
     }
 }
