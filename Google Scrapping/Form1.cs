@@ -34,6 +34,7 @@ namespace Google_Scrapping
                 ImageIndex = -1;
             }
             pictureBox1.ImageLocation = q[++ImageIndex];
+            label3.Text = (ImageIndex + 1).ToString();
         }
         // Previous Image Button
         private void button1_Click(object sender, EventArgs e)
@@ -42,7 +43,8 @@ namespace Google_Scrapping
             {
                 ImageIndex = 100;
             }
-            pictureBox1.ImageLocation = q[++ImageIndex];
+            pictureBox1.ImageLocation = q[--ImageIndex];
+            label3.Text = (ImageIndex + 1).ToString();
         }
         // Handle Keyboards Button
         private void Form1_KeyDown(object sender, KeyEventArgs e)
