@@ -3,6 +3,7 @@ namespace Google_Scrapping
     public partial class Form1 : Form
     {
         int ImageIndex = 0;
+        int ImageCounts = 100;
         List<string> q;
         public Form1()
         {
@@ -12,6 +13,7 @@ namespace Google_Scrapping
         private async void button3_Click(object sender, EventArgs e)
         {
             button3.Enabled = false;
+            ImageCounts = (int)numericUpDown1.Value;
             // Search for user input
             if (textBox1.Text != "")
             {
@@ -29,7 +31,7 @@ namespace Google_Scrapping
         // Next Image Button
         private void button2_Click(object sender, EventArgs e)
         {
-            if(ImageIndex == 99)
+            if(ImageIndex == ImageCounts - 1)
             {
                 ImageIndex = -1;
             }
@@ -41,7 +43,7 @@ namespace Google_Scrapping
         {
             if(ImageIndex == 0)
             {
-                ImageIndex = 100;
+                ImageIndex = ImageCounts;
             }
             pictureBox1.ImageLocation = q[--ImageIndex];
             label3.Text = (ImageIndex + 1).ToString();
