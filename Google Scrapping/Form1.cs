@@ -2,6 +2,8 @@ namespace Google_Scrapping
 {
     public partial class Form1 : Form
     {
+        int ImageIndex = 0;
+        List<string> q;
         public Form1()
         {
             InitializeComponent();
@@ -13,11 +15,9 @@ namespace Google_Scrapping
             // Search for user input
             if (textBox1.Text != "")
             {
-                List<string> q = await API.GetImage(textBox1.Text);
-                foreach (var item in q)
-                {
-                    richTextBox1.Text += item + "\n";
-                }
+                q = await API.GetImage(textBox1.Text);
+
+                pictureBox1.ImageLocation = q[ImageIndex];
             }
             else
             {
@@ -25,6 +25,15 @@ namespace Google_Scrapping
             }
 
             button3.Enabled = true;
+        }
+        // Next Image Button
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(ImageIndex == 99)
+            {
+                ImageIndex = -1;
+            }
+            pictureBox1.ImageLocation = q[++ImageIndex];
         }
     }
 }

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -47,14 +47,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(731, 48);
             this.textBox1.TabIndex = 0;
-            // 
-            // domainUpDown1
-            // 
-            this.domainUpDown1.Font = new System.Drawing.Font("Sarbaz", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.domainUpDown1.Location = new System.Drawing.Point(1156, 10);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(100, 47);
-            this.domainUpDown1.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -85,6 +77,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "👉";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -117,13 +110,23 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // richTextBox1
+            // numericUpDown1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 78);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1361, 690);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
+            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.numericUpDown1.Location = new System.Drawing.Point(1148, 15);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 43);
+            this.numericUpDown1.TabIndex = 8;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
@@ -131,18 +134,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1385, 856);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.domainUpDown1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Google Scrapper";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,13 +154,12 @@
         #endregion
 
         private TextBox textBox1;
-        private DomainUpDown domainUpDown1;
         private PictureBox pictureBox1;
         private Button button1;
         private Button button2;
         private Label label1;
         private Label label2;
         private Button button3;
-        private RichTextBox richTextBox1;
+        private NumericUpDown numericUpDown1;
     }
 }
